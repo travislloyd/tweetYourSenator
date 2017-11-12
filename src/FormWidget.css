@@ -25,6 +25,7 @@
 	color: #575454;
 }
 
+
 .FormWidget-button {
 	background-color: #DC4337;
 	color: #FFFFFF;
@@ -37,6 +38,7 @@
 
 .FormWidget-listItem-label {
 	display: flex;
+	text-align: left;
 }
 
 .FormWidget-listItem-label__child{
@@ -45,6 +47,7 @@
 
 .FormWidget-listItem-label__value{
 	color: #7B7676;
+	margin-left: 20px;
 }
 
 .FormWidget-listItem-label__name{

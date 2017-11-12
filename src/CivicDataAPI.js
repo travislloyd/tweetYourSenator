@@ -32,7 +32,6 @@ class CivicDataAPI {
 
 	_formatReponse(responseText){
     	const json = JSON.parse(responseText)
-		const addressState = json["normalizedInput"]["state"];
 
 		const senators = json["officials"].map((senator) => { 
 			return {

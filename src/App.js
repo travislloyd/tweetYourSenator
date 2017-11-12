@@ -10,8 +10,9 @@ class App extends Component {
 
     const senators = this.props.senators ? this.props.senators : []
     const addressState = this.props.addressState ? this.props.addressState : undefined
-    
-    this.state = {senators: senators, addressState: addressState}
+    const selectedSenator = this.props.selectedSenator ? this.props.selectedSenator : undefined
+
+    this.state = {senators: senators, addressState: addressState, selectedSenator: selectedSenator}
   }
 
   render() {
@@ -19,8 +20,10 @@ class App extends Component {
 
     if(this.state.senators.length === 0){
       appContent = this._buildZipcodeSelectWidget()
-    } else {
+    } else if(!this.state.selectedSenator){
       appContent = this._buildSenatorSelectWidget()
+    } else {
+      appContent = this._buildTweetSelectWidget()
     } 
 
     return (
@@ -52,6 +55,22 @@ class App extends Component {
     )
   }
 
+  _buildTweetSelectWidget(){
+    return (
+        <FormWidget header="Select your tweet"
+            cta="Tweet away!"
+            ctaFunction={ (tweet) => this._handleTweetSelection(tweet) }
+            optionsList={ this._buildTweetList() }/>
+    )
+  }
+
+  _buildTweetList(){
+    let tweet1 = "Hey " + this.state.selectedSenator + " trends for #GivingTuesday show people gearing up in August, start early! https://wholewhale.com via @wholewhale"
+    let tweet2 = "The best ideas are not in the room, " + this.state.selectedSenator + ". Find great fundraising supporter stories for #givingtuesday https://wholewhale.com via @wholewhale"
+
+    return [ { displayValue: true, value: tweet1 }, {displayValue: true, value: tweet2 }]
+  }
+
   _handleZipcodeInput(zip){
     const promise = this.civicDataAPI.getSenatorsForZipcode(zip)
 
@@ -64,8 +83,12 @@ class App extends Component {
   }
 
   _handleSenatorSelection(senator){
+    this.setState({selectedSenator: senator})
+  }
+
+  _handleTweetSelection(tweet){
     // TODO: IMPLEMENT
-    console.log("Selected senator = " + senator)
+    console.log(tweet)
   }
 }
 
