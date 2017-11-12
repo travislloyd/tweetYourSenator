@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
+import CivicDataAPI from './CivicDataAPI';
 import './App.css';
 import FormWidget from './FormWidget';
 
 class App extends Component {
+  constructor(props){
+    super(props)
+    this.civicDataAPI = new CivicDataAPI(props.apiKey)
+    this.state = {senators: []}
+  }
+
   render() {
+    //TODO render next widget when senators are present
+    console.log(this.state.senators)
+    
     return (
       <div className="App">
         <header className="App-header">
@@ -25,8 +35,14 @@ class App extends Component {
   }
 
   _handleZipcodeInput(zip){
-    // TODO: implement
-    window.alert("TODO: Handle this zipcode: " + zip)
+    const promise = this.civicDataAPI.getSenatorsForZipcode(zip)
+
+    promise.then((successData) => {
+      this.setState({ addressState: successData.addressState, senators: successData.senators })
+    })
+    .catch((errorMsg) => {
+      alert(errorMsg)
+    })
   }
 }
 
