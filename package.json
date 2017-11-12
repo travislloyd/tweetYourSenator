@@ -17,6 +17,8 @@
   },
   "homepage": "https://travislloyd.github.io/tweet_your_senator",
   "devDependencies": {
+    "enzyme": "^3.1.1",
+    "enzyme-adapter-react-16": "^1.0.4",
     "gh-pages": "^1.0.0"
   }
 }

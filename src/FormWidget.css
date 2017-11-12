@@ -1,0 +1,31 @@
+.FormWidget {
+	padding: 48px 48px;
+	border-radius: 4px;
+	box-shadow: 0 0 6px 0 rgba(178,178,178,0.5);
+}
+
+.FormWidget-title {
+	font-size: 18px;
+	font-weight: 800;
+	padding-bottom: 20px;
+}
+
+.FormWidget-smallBlock {
+	height: 45px;
+	width: 219px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	font-size: 16px;
+	margin-top: 20px;
+}
+
+.FormWidget-userInput[type="text"] {
+	background-color: #F0F0F0;
+	color: #575454;
+}
+
+.FormWidget-button {
+	background-color: #DC4337;
+	color: #FFFFFF;
+}
