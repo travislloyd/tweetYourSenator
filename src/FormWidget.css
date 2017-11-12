@@ -29,3 +29,24 @@
 	background-color: #DC4337;
 	color: #FFFFFF;
 }
+
+.FormWidget-listItem {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.FormWidget-listItem-label {
+	display: flex;
+}
+
+.FormWidget-listItem-label__child{
+	flex-grow: 1;
+}
+
+.FormWidget-listItem-label__value{
+	color: #7B7676;
+}
+
+.FormWidget-listItem-label__name{
+	font-weight: bold;
+}
