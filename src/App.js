@@ -87,8 +87,7 @@ class App extends Component {
   }
 
   _handleTweetSelection(tweet){
-    // TODO: IMPLEMENT
-    console.log(tweet)
+    window.location.href = "http://twitter.com/home?status=" + encodeURIComponent(tweet)
   }
 }
 
